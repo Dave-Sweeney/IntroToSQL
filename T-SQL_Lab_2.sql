@@ -81,3 +81,29 @@ WHERE ProductNumber LIKE 'BK-%';
 SELECT ProductNumber, Name, ListPrice
 FROM SalesLT.Product
 WHERE ProductNumber LIKE 'BK-[^r]%-[0-9][0-9]';
+
+SELECT ProductNumber, Name, ListPrice
+FROM SalesLT.Product
+WHERE ProductNumber LIKE 'BK-[^r]%' AND 
+        ProductNumber LIKE'%-[0-9][0-9]';
+
+
+
+INSERT INTO SalesLT.Product VALUES (
+      'Fake Product'
+      ,'BK-89R-99'
+      ,'Blue'
+      ,9999999.99
+      ,10.00
+      ,'S'
+      ,100
+      ,1
+      ,1
+      ,'2005-07-01 00:00:00.000'
+      ,NULL
+      ,NULL
+      ,NULL
+      ,NULL
+      ,'6ec47ec9-c041-4dda-b686-2125d539ce9c'
+      ,'2008-03-11 10:01:36.827');
+  
