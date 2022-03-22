@@ -1,20 +1,4 @@
 /*
-        Sort results using the ORDER BY clause
-*/
-
--- Modify the existing query to return the Name and ListPrice of all products
-/*
-    SELECT Name, ListPrice
-    FROM SalesLT.Product
-    ORDER BY ListPrice DESC;
-*/
-
-SELECT Name, ListPrice
-FROM SalesLT.Product
-ORDER BY ListPrice DESC;
-
-
-/*
     Challenge 1: Retrieve data for transportation reports
 
     The logistics manager at Adventure Works has asked you to
