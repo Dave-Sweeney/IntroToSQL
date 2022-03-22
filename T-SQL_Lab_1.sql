@@ -97,3 +97,26 @@ SELECT SalesOrderID,
         ELSE 'Shipped'
     END AS Status
 FROM SalesLT.SalesOrderHeader
+
+
+/*
+    Create a new table in the database called Emails
+*/
+CREATE TABLE Emails (EmailAddress VARCHAR(MAX))
+INSERT INTO Emails VALUES('value1'), ('value2'), ('value3'), ('value4')
+GO
+
+/*
+    Use a select statement to determine valid or invalid e-mail addresses
+*/
+
+INSERT INTO Emails VALUES('not valid@email.edu')
+
+SELECT EmailAddress, 
+    CASE
+        WHEN EmailAddress LIKE '%[A-Za-z0-9\-\_][@][A-Za-z0-9\-\_]%[.][A-Za-z0-9]%' THEN 'Valid'
+        -- WHEN EmailAddress LIKE '[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}' THEN 'Valid'
+        -- WHEN CHARINDEX('@', EmailAddress) > 1 AND (CHARINDEX('.', EmailAddress) > CHARINDEX('@', EmailAddress)) THEN 'Valid'
+        ELSE 'Invalid'
+    END AS Valid
+FROM Emails
