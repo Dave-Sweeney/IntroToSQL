@@ -67,9 +67,9 @@ SELECT c.CustomerID, c.CompanyName, c.FirstName, c.LastName, c.Phone
 FROM [SalesLT].[Customer] AS c
 LEFT JOIN [SalesLT].[CustomerAddress] AS ca
 ON c.CustomerID = ca.CustomerID
-LEFT JOIN [SalesLT].[Address] AS a
-ON ca.AddressID = a.AddressID
 WHERE ca.AddressID IS NULL;
+
+
 
 /*
     Challenge 3.    Create a product catalog
