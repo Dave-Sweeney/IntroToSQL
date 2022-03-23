@@ -79,6 +79,7 @@ WHERE p.ListPrice > 1000
 GROUP BY p.Name
 ORDER BY TotalRevenue DESC;
 
+
 /*
 
     3.	Filter the product sales groups to include only total sales over 
@@ -92,7 +93,6 @@ SELECT p.Name, SUM(od.LineTotal) TotalRevenue
 FROM SalesLT.Product AS p
 JOIN SalesLT.SalesOrderDetail AS od
 ON p.ProductID = od.ProductID
-WHERE p.ListPrice > 1000
 GROUP BY p.Name
 HAVING SUM(od.LineTotal) > 20000
 ORDER BY TotalRevenue DESC;
