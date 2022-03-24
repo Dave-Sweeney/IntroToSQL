@@ -34,7 +34,7 @@ SELECT IDENT_CURRENT('SalesLT.Product');
 
 SELECT * 
 FROM SalesLT.Product
-WHERE ProductID = IDENT_CURRENT('SalesLT.Product');
+WHERE Name LIKE 'LED Lights';
 
 /*
     2.	Insert a new category with two products
@@ -144,14 +144,9 @@ WHERE p.DiscontinuedDate IS NOT NULL;
 
 */
 
-SELECT * FROM SalesLT.Product
-WHERE ProductCategoryID = IDENT_CURRENT('SalesLT.ProductCategory');
 
 DELETE FROM SalesLT.Product
 WHERE ProductCategoryID = IDENT_CURRENT('SalesLT.ProductCategory');
 
 DELETE FROM SalesLT.ProductCategory
 WHERE Name LIKE 'Bells and Horns';
-
-SELECT Name
-From SalesLT.ProductCategory
