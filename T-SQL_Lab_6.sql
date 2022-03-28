@@ -89,12 +89,26 @@ DECLARE @lname NVARCHAR(30);
 WHILE @customerID <= 10
     BEGIN
 
+        SET @fname = (SELECT FirstName 
+                    FROM SalesLT.Customer 
+                    WHERE CustomerID = @customerID);
+        SET @lname = (SELECT LastName 
+                    FROM SalesLT.Customer 
+                    WHERE CustomerID = @customerID);
+        
+
+        if @fname IS NOT NULL AND @lname IS NOT NULL
+        BEGIN
+            PRINT @fname + ' ' + @lname;
+        END
+        SET @customerID += 1;
+        
+        /*
         SELECT @fname = FirstName, @lname = LastName
         FROM SalesLT.Customer 
         WHERE CustomerID = @customerID;
-
-        PRINT @fname + ' ' + @lname;
-        SET @customerID += 1;
+        */
+        
     END;
 
 GO
