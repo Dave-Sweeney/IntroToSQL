@@ -88,16 +88,10 @@ DECLARE @lname NVARCHAR(30);
 
 WHILE @customerID <= 10
     BEGIN
-        SET @fname = (
-            SELECT FirstName 
-            FROM SalesLT.Customer
-            WHERE CustomerID = @customerID
-            )
-        SET @lname = (
-            SELECT LastName 
-            FROM SalesLT.Customer
-            WHERE CustomerID = @customerID
-        )
+
+        SELECT @fname = FirstName, @lname = LastName
+        FROM SalesLT.Customer 
+        WHERE CustomerID = @customerID;
 
         PRINT @fname + ' ' + @lname;
         SET @customerID += 1;
