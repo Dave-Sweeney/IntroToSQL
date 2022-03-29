@@ -55,6 +55,8 @@ BEGIN
     SET @CustomerID += 1;
 
 END;
+GO
+
 
 /*
     Challenge 2:  Create a simple error display procedure
@@ -88,6 +90,12 @@ END TRY
 BEGIN CATCH
     EXECUTE dbo.DisplayErrorDetails;
 END CATCH;
+GO
+
+
+IF EXISTS(SELECT * FROM sys.objects WHERE type = 'P' 
+            AND name = 'DisplayErrorDetails')
+DROP PROCEDURE DisplayErrorDetails
 GO
 
 CREATE PROCEDURE dbo.DisplayErrorDetails AS
