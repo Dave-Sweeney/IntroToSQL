@@ -61,13 +61,10 @@ CREATE TABLE dbo.Budget
     ordered by year in ascending order.
 */
 
-WITH budget AS (
-    SELECT [Year], Budget, LAG(Budget, 1, 0) OVER (ORDER BY [Year]) AS 'Previous'
-     FROM dbo.Budget
-)
-SELECT TOP 1 FIRST_VALUE(Budget) OVER (ORDER BY [Year]) AS 'First Year Budget', 
-        LAST_VALUE(Budget) OVER (ORDER BY [Year] DESC) AS 'Last Year Budget'
-        FROM budget;
+SET ROWCOUNT 1;
+SELECT FIRST_VALUE(Budget) OVER (ORDER BY Year),
+        LAST_VALUE(Budget) OVER (ORDER BY Year DESC)
+FROM dbo.Budget;
 
 /*
     Challenge 4:  Count the products in each category
